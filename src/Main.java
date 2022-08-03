@@ -1,125 +1,37 @@
 public class Main {
     public static void main(String[] args) {
 
-        Persona personac = new Persona() {
-            @Override
-            public String getCredito() {
-                return null;
-            }
+        Cliente Clientep = new Cliente();
+        Trabajador Trabajadorp = new Trabajador();
 
-            @Override
-            public void setCredito(String credito) {
-
-            }
-
-            @Override
-            public String getSalario() {
-                return null;
-            }
-
-            @Override
-            public void setSalario(String salario) {
-
-            }
-        };
-        personac.setEdad(20);
-        personac.setNombre("Carlos");
-        personac.setTelefono("3108871098");
-
-        Cliente Clientep = new Cliente() {
-            @Override
-            public String getSalario() {
-                return null;
-            }
-
-            @Override
-            public void setSalario(String salario) {
-
-            }
-        };
-        Clientep.setCredito("Credito Estuadiantil");
-
-        Trabajador Trabajadorp = new Trabajador() {
-            @Override
-            public String getCredito() {
-                return null;
-            }
-
-            @Override
-            public void setCredito(String credito) {
-
-            }
-        };
-        Trabajadorp.setSalario("$ 1'200.000");
+        Clientep.edad=20;
+        Clientep.telefono = "312 870 5645";
+        Clientep.nombre = "Carlos";
+        Clientep.credito="Credito Estudiantil";
+        System.out.println( "El señor " + Clientep.nombre +" tiene "+ Clientep.edad + " su contacto es "+ Clientep.telefono +" el credito que tiene es "+ Clientep.credito);
 
 
+        Trabajadorp.edad=22;
+        Trabajadorp.telefono = "311 210 9872";
+        Trabajadorp.nombre = "Luis";
+        Trabajadorp.salario ="$ 1'200.000";
 
-        System.out.println(personac.getEdad());
-        System.out.println(personac.getTelefono());
-        System.out.println(personac.getNombre());
-        System.out.println(personac.getCredito());
-        System.out.println(personac.getSalario());
+        System.out.println( "El señor " + Trabajadorp.nombre +" tiene "+ Trabajadorp.edad +" su contacto es "+ Trabajadorp.telefono +" su salaraios es "+ Trabajadorp.salario);
+
 
     }
 
 }
-
-abstract class Persona {
+ class Persona {
         int edad;
         String nombre;
         String telefono;
-        String credito;
-        String salario;
-
-
-        public void setEdad(int edad) {
-            this.edad = edad;
-        }
-
-        public int getEdad() {
-            return this.edad;
-        }
-
-        public void setNombre(String nombre) {
-            this.nombre = nombre;
-        }
-
-        public String getNombre() {
-            return this.nombre;
-        }
-
-        public void setTelefono(String telefono) {
-            this.telefono = telefono;
-        }
-
-        public String getTelefono() {
-            return this.telefono;
-        }
-
-        abstract public String getCredito();
-        abstract public void setCredito(String credito);
-
-        abstract public String getSalario();
-        abstract public void setSalario(String salario);
     }
 
-    abstract class Cliente extends Persona{
-        public String getCredito(){
-          return this.credito;
-        }
-
-        public  void setCredito(String credito){
-            this.credito = credito;
-        }
+    class Cliente extends Persona{
+       String credito;
     }
 
-    abstract class Trabajador extends Persona {
-
-        public String getSalario() {
-            return this.salario;
-        }
-
-        public void setSalario(String salario) {
-            this.salario = salario;
-        }
+    class Trabajador extends Persona {
+       String salario;
     }
